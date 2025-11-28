@@ -1,0 +1,22 @@
+window.mangaWords = [
+    { word1: "Naruto", word2: "Sasuke" },
+    { word1: "Naruto", word2: "Luffy" },
+    { word1: "One Piece", word2: "Naruto" },
+    { word1: "Bleach", word2: "My Hero Academia" },
+    { word1: "Goku", word2: "Vegeta" },
+    { word1: "Zoro", word2: "Sanji" },
+    { word1: "Tanjiro", word2: "Nezuko" },
+    { word1: "Eren", word2: "Mikasa" },
+    { word1: "Tokyo Ghoul", word2: "Parasyte" },
+    { word1: "Jujutsu Kaisen", word2: "Chainsaw Man" },
+    { word1: "Itachi", word2: "Kakashi" },
+    { word1: "Gojo", word2: "Sukuna" },
+    { word1: "Deku", word2: "Bakugo" },
+    { word1: "Natsu", word2: "Gray" },
+    { word1: "Light", word2: "L" },
+    { word1: "Saitama", word2: "Genos" },
+    { word1: "Gon", word2: "Killua" },
+    { word1: "Edward Elric", word2: "Alphonse Elric" },
+    { word1: "Jotaro", word2: "Dio" },
+    { word1: "Sasha", word2: "Pikachu" }
+];

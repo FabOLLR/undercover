@@ -1,0 +1,51 @@
+<div class="screen-content mode-config-screen" data-mode="classic">
+    <div class="header-with-back">
+        <button class="btn-icon-back" data-action="navigate" data-target="mode-selection">⬅️</button>
+        <h2>Mode Classique</h2>
+    </div>
+
+    <div class="config-container">
+        <!-- Main Config -->
+        <div class="setup-controls">
+            <div class="control-group">
+                <label>Nombre de joueurs</label>
+                <div class="counter-control">
+                    <button data-action="adjust-players" data-amount="-1">-</button>
+                    <span id="player-count-display">5</span>
+                    <button data-action="adjust-players" data-amount="1">+</button>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label>Nombre d'Undercover</label>
+                <div class="counter-control">
+                    <button data-action="adjust-undercover" data-amount="-1">-</button>
+                    <span id="undercover-count-display">1</span>
+                    <button data-action="adjust-undercover" data-amount="1">+</button>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label>Mr. White ?</label>
+                <label class="toggle-control">
+                    <input type="checkbox" id="toggle-mrwhite" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Player Names -->
+        <div id="player-inputs-container" class="player-inputs-grid">
+            <!-- Injected by JS -->
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="config-actions">
+            <button class="btn-secondary" data-action="open-modal" data-target="mode-settings">⚙️ Paramètres du
+                mode</button>
+            <button class="btn-secondary" data-action="open-modal" data-target="mode-lists">📚 Listes de mots</button>
+        </div>
+
+        <button id="btn-start-game" class="btn-primary" data-action="start-game">Lancer la partie</button>
+    </div>
+</div>

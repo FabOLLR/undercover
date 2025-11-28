@@ -1,0 +1,272 @@
+/* CRITICAL FIX - Override corrupted styles */
+.roles-reveal {
+    width: 100% !important;
+    background: var(--card-bg) !important;
+    padding: 20px !important;
+    border-radius: 12px !important;
+    margin-bottom: 20px !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    float: none !important;
+    height: auto !important;
+}
+
+/* Game over screen - Force proper layout */
+.gameover-screen,
+.game-screen {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 20px !important;
+    overflow-y: auto !important;
+}
+
+/* Force buttons to be visible and at bottom */
+#btn-restart,
+#btn-home,
+#btn-start-vote,
+.game-screen .btn-secondary {
+    width: 100% !important;
+    margin-top: 15px !important;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: relative !important;
+    z-index: 100 !important;
+    flex: none !important;
+    order: 999 !important;
+}
+
+#btn-restart,
+#btn-start-vote {
+    background: linear-gradient(to right, var(--primary), var(--accent)) !important;
+    color: white !important;
+    border: none !important;
+    padding: 15px 30px !important;
+    border-radius: 12px !important;
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    transition: all 0.2s !important;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4) !important;
+}
+
+#btn-home,
+.game-screen .btn-secondary {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: var(--text-main) !important;
+    padding: 15px 30px !important;
+    border-radius: 12px !important;
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    transition: all 0.2s !important;
+}
+
+/* CRITICAL FIX - Override corrupted styles */
+.roles-reveal {
+    width: 100% !important;
+    background: var(--card-bg) !important;
+    padding: 20px !important;
+    border-radius: 12px !important;
+    margin-bottom: 20px !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    float: none !important;
+    height: auto !important;
+}
+
+/* Game over screen - Force proper layout */
+.gameover-screen,
+.game-screen {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 20px !important;
+    overflow-y: auto !important;
+}
+
+/* Force buttons to be visible and at bottom */
+#btn-restart,
+#btn-home,
+#btn-start-vote,
+.game-screen .btn-secondary {
+    width: 100% !important;
+    margin-top: 15px !important;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: relative !important;
+    z-index: 100 !important;
+    flex: none !important;
+    order: 999 !important;
+}
+
+#btn-restart,
+#btn-start-vote {
+    background: linear-gradient(to right, var(--primary), var(--accent)) !important;
+    color: white !important;
+    border: none !important;
+    padding: 15px 30px !important;
+    border-radius: 12px !important;
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    transition: all 0.2s !important;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4) !important;
+}
+
+#btn-home,
+.game-screen .btn-secondary {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: var(--text-main) !important;
+    padding: 15px 30px !important;
+    border-radius: 12px !important;
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    transition: all 0.2s !important;
+}
+
+#btn-home:hover,
+.game-screen .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* CRITICAL FIX - Override corrupted styles */
+.roles-reveal {
+    width: 100% !important;
+    background: var(--card-bg) !important;
+    padding: 20px !important;
+    border-radius: 12px !important;
+    margin-bottom: 20px !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    float: none !important;
+    height: auto !important;
+}
+
+/* Game over screen - Force proper layout */
+.gameover-screen,
+.game-screen {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 20px !important;
+    overflow-y: auto !important;
+}
+
+/* Force buttons to be visible and at bottom */
+#btn-restart,
+#btn-home,
+#btn-start-vote,
+.game-screen .btn-secondary {
+    width: 100% !important;
+    margin-top: 15px !important;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: relative !important;
+    z-index: 100 !important;
+    flex: none !important;
+    order: 999 !important;
+}
+
+#btn-restart,
+#btn-start-vote {
+    background: linear-gradient(to right, var(--primary), var(--accent)) !important;
+    color: white !important;
+    border: none !important;
+    padding: 15px 30px !important;
+    border-radius: 12px !important;
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    transition: all 0.2s !important;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4) !important;
+}
+
+#btn-home,
+.game-screen .btn-secondary {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: var(--text-main) !important;
+    padding: 15px 30px !important;
+    border-radius: 12px !important;
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    transition: all 0.2s !important;
+}
+
+/* CRITICAL FIX - Override corrupted styles */
+.roles-reveal {
+    width: 100% !important;
+    background: var(--card-bg) !important;
+    padding: 20px !important;
+    border-radius: 12px !important;
+    margin-bottom: 20px !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    float: none !important;
+    height: auto !important;
+}
+
+/* Game over screen - Force proper layout */
+.gameover-screen,
+.game-screen {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 20px !important;
+    overflow-y: auto !important;
+}
+
+/* Force buttons to be visible and at bottom */
+#btn-restart,
+#btn-home,
+#btn-start-vote,
+.game-screen .btn-secondary {
+    width: 100% !important;
+    margin-top: 15px !important;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: relative !important;
+    z-index: 100 !important;
+    flex: none !important;
+    order: 999 !important;
+}
+
+#btn-restart,
+#btn-start-vote {
+    background: linear-gradient(to right, var(--primary), var(--accent)) !important;
+    color: white !important;
+    border: none !important;
+    padding: 15px 30px !important;
+    border-radius: 12px !important;
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    transition: all 0.2s !important;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4) !important;
+}
+
+#btn-home,
+.game-screen .btn-secondary {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: var(--text-main) !important;
+    padding: 15px 30px !important;
+    border-radius: 12px !important;
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    transition: all 0.2s !important;
+}
+
+#btn-home:hover,
+.game-screen .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    transform: translateY(-2px) !important;
+}
+
+#btn-restart:hover,
+#btn-start-vote:hover {
+    transform: translateY(-2px) !important;
+}

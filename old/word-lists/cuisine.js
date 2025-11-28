@@ -1,0 +1,20 @@
+const cuisineWords = [
+    { word1: "Cuisinier", word2: "Chef" },
+    { word1: "Pâtisserie", word2: "Boulangerie" },
+    { word1: "Entrée", word2: "Plat" },
+    { word1: "Dessert", word2: "Fromage" },
+    { word1: "Fourchette", word2: "Cuillère" },
+    { word1: "Poêle", word2: "Casserole" },
+    { word1: "Four", word2: "Micro-ondes" },
+    { word1: "Sel", word2: "Poivre" },
+    { word1: "Sucre", word2: "Miel" },
+    { word1: "Viande", word2: "Poisson" },
+    { word1: "Légume", word2: "Fruit" },
+    { word1: "Riz", word2: "Pâtes" },
+    { word1: "Soupe", word2: "Salade" },
+    { word1: "Gâteau", word2: "Tarte" },
+    { word1: "Restaurant", word2: "Bistrot" },
+    { word1: "Épicé", word2: "Sucré" },
+    { word1: "Cru", word2: "Cuit" },
+    { word1: "Baguette", word2: "Pain" }
+];

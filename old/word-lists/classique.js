@@ -1,0 +1,22 @@
+const classiqueWords = [
+    { word1: "Tigre", word2: "Lion" },
+    { word1: "Fraise", word2: "Cerise" },
+    { word1: "Bureau", word2: "Chaise" },
+    { word1: "Voiture", word2: "Camion" },
+    { word1: "Guitare", word2: "Violon" },
+    { word1: "Soleil", word2: "Lune" },
+    { word1: "Océan", word2: "Lac" },
+    { word1: "Pizza", word2: "Pâtes" },
+    { word1: "Chien", word2: "Loup" },
+    { word1: "Café", word2: "Thé" },
+    { word1: "Avion", word2: "Hélicoptère" },
+    { word1: "Montagne", word2: "Colline" },
+    { word1: "Stylo", word2: "Crayon" },
+    { word1: "Ordinateur", word2: "Tablette" },
+    { word1: "Football", word2: "Rugby" },
+    { word1: "Pomme", word2: "Poire" },
+    { word1: "Chat", word2: "Tigre" },
+    { word1: "Livre", word2: "Magazine" },
+    { word1: "Vélo", word2: "Moto" },
+    { word1: "Pluie", word2: "Neige" }
+];

@@ -1,0 +1,24 @@
+<div class="screen-content game-screen">
+    <div class="game-header">
+        <h2>Tour de table</h2>
+    </div>
+    <p class="instruction">Chacun donne un indice.</p>
+
+    <div class="game-stats">
+        <div class="stat-item">
+            <span class="stat-label">Undercover restants :</span>
+            <span id="undercover-remaining" class="stat-value">0</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">Mr. White :</span>
+            <span id="mrwhite-remaining" class="stat-value">0</span>
+        </div>
+    </div>
+
+    <ul id="player-list" class="player-list">
+        <!-- List of alive players -->
+    </ul>
+
+    <button id="btn-start-vote" class="btn-primary" data-action="navigate" data-target="vote">Lancer le vote</button>
+    <button class="btn-secondary" data-action="navigate" data-target="home">🏠 Accueil</button>
+</div>

@@ -1,0 +1,126 @@
+<!-- Settings Modal -->
+<div id="settings-modal" class="modal hidden">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 data-i18n="settings.title">Paramètres</h2>
+            <button class="btn-close" data-action="close-modal" data-target="settings">✕</button>
+        </div>
+        <div class="modal-body">
+            <div class="settings-section">
+                <h3>🌍 Paramètres globaux</h3>
+                <div class="setting-item">
+                    <label>Langue de l'interface</label>
+                    <select id="setting-language">
+                        <option value="fr">Français</option>
+                        <option value="en">English</option>
+                        <option value="es">Español</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <label>Langue des mots</label>
+                    <select id="setting-words-language">
+                        <option value="fr">Français</option>
+                        <option value="en">English</option>
+                        <option value="es">Español</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h3>🔊 Son & vibrations</h3>
+                <div class="setting-item">
+                    <label>Sons</label>
+                    <label class="toggle-control">
+                        <input type="checkbox" id="setting-sound" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <label>Vibrations</label>
+                    <label class="toggle-control">
+                        <input type="checkbox" id="setting-vibration" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="settings-footer">
+                <div class="credits-small">Créé par Ollier Fabio</div>
+                <button class="btn-primary" data-action="save-settings">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Rules Modal -->
+<div id="rules-modal" class="modal hidden">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Règles</h2>
+            <button class="btn-close" data-action="close-modal" data-target="rules">✕</button>
+        </div>
+        <div class="modal-body scrollable">
+            <h3>Rôles</h3>
+            <p><strong>Civil :</strong> Vous devez trouver les autres civils...</p>
+            <p><strong>Undercover :</strong> Vous avez un mot légèrement différent...</p>
+            <p><strong>Mr. White :</strong> Vous n'avez pas de mot...</p>
+
+            <h3>Mode Classique</h3>
+            <p>Chacun donne un indice...</p>
+
+            <!-- Add more rules content here -->
+        </div>
+    </div>
+</div>
+
+<!-- Word Lists Modal (Global Viewer) -->
+<div id="word-lists-modal" class="modal hidden">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Listes de mots</h2>
+            <button class="btn-close" data-action="close-modal" data-target="word-lists">✕</button>
+        </div>
+        <div class="modal-body scrollable">
+            <div id="lists-viewer-container">
+                <!-- Populated by JS -->
+                <p>Chargement des listes...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Mode Settings Modal -->
+<div id="mode-settings-modal" class="modal hidden">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Paramètres du mode</h2>
+            <button class="btn-close" data-action="close-modal" data-target="mode-settings">✕</button>
+        </div>
+        <div class="modal-body">
+            <div id="mode-settings-content">
+                <!-- Dynamic content based on current mode -->
+            </div>
+            <div class="settings-footer">
+                <button class="btn-primary" data-action="save-mode-settings">Valider</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Mode Lists Selection Modal -->
+<div id="mode-lists-modal" class="modal hidden">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Choisir les listes</h2>
+            <button class="btn-close" data-action="close-modal" data-target="mode-lists">✕</button>
+        </div>
+        <div class="modal-body scrollable">
+            <div id="mode-lists-container">
+                <!-- Dynamic checkboxes -->
+            </div>
+            <div class="settings-footer">
+                <button class="btn-primary" data-action="save-mode-lists">Valider</button>
+            </div>
+        </div>
+    </div>
+</div>

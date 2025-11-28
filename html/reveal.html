@@ -1,0 +1,18 @@
+<div class="screen-content reveal-screen">
+    <div class="card-container">
+        <h2 id="reveal-player-name">Joueur X</h2>
+        <p class="instruction">Passe le téléphone à <span id="reveal-target-name">...</span></p>
+
+        <div id="secret-card" class="card" data-action="reveal-card">
+            <div class="card-front">
+                <span>Voir mon mot secret</span>
+            </div>
+            <div class="card-back">
+                <span id="secret-word">???</span>
+                <p class="role-hint" id="role-hint"></p>
+            </div>
+        </div>
+
+        <button id="btn-confirm-secret" class="btn-primary hidden" data-action="confirm-secret">C'est vu !</button>
+    </div>
+</div>

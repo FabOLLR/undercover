@@ -1,0 +1,22 @@
+window.musiqueWords = [
+    { word1: "Gims", word2: "Ninho" },
+    { word1: "Nekfeu", word2: "Alpha Wann" },
+    { word1: "Orelsan", word2: "Gringe" },
+    { word1: "PNL", word2: "SCH" },
+    { word1: "Damso", word2: "Hamza" },
+    { word1: "Naps", word2: "Jul" },
+    { word1: "Lomepal", word2: "Roméo Elvis" },
+    { word1: "Ariana Grande", word2: "Dua Lipa" },
+    { word1: "Beyoncé", word2: "Rihanna" },
+    { word1: "Michael Jackson", word2: "Prince" },
+    { word1: "Drake", word2: "Travis Scott" },
+    { word1: "Kendrick Lamar", word2: "J. Cole" },
+    { word1: "Eminem", word2: "50 Cent" },
+    { word1: "The Weeknd", word2: "Bruno Mars" },
+    { word1: "SZA", word2: "H.E.R" },
+    { word1: "Luther", word2: "Népal" },
+    { word1: "Rounhaa", word2: "La Fève" },
+    { word1: "Tayc", word2: "Dadju" },
+    { word1: "Aya Nakamura", word2: "Angèle" },
+    { word1: "Metro Boomin", word2: "DJ Khaled" }
+];

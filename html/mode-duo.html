@@ -1,0 +1,32 @@
+<div class="screen-content mode-config-screen" data-mode="duo">
+    <div class="header-with-back">
+        <button class="btn-icon-back" data-action="navigate" data-target="mode-selection">⬅️</button>
+        <h2>Mode Duo</h2>
+    </div>
+
+    <div class="duo-mode-selector">
+        <button class="tab-btn active" data-action="select-duo-submode" data-submode="classic">Duo Classique</button>
+        <button class="tab-btn" data-action="select-duo-submode" data-submode="chaos">Duo Chaos</button>
+    </div>
+
+    <div class="config-container">
+        <p id="duo-description" class="mode-description">
+            Devinez si vous avez le même mot ou des mots différents.
+        </p>
+
+        <!-- Player Names (Only 2 players) -->
+        <div class="player-inputs-grid">
+            <input type="text" id="duo-player1-name" placeholder="Joueur 1">
+            <input type="text" id="duo-player2-name" placeholder="Joueur 2">
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="config-actions">
+            <button class="btn-secondary" data-action="open-modal" data-target="mode-settings">⚙️ Paramètres du
+                mode</button>
+            <button class="btn-secondary" data-action="open-modal" data-target="mode-lists">📚 Listes de mots</button>
+        </div>
+
+        <button id="btn-start-game" class="btn-primary" data-action="start-game">Lancer le duel</button>
+    </div>
+</div>

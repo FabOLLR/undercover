@@ -1,0 +1,100 @@
+/* Utilities */
+.hidden {
+    display: none !important;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Visibility Control for Home Screen Buttons */
+.home-settings-view .tabs {
+    display: none;
+}
+
+.home-settings-view .settings-section:not(.section-global):not(.section-sound) {
+    display: none;
+}
+
+.rules-view .tabs {
+    display: none;
+}
+
+/* Timer Styles */
+.timer-normal {
+    color: #3b82f6 !important;
+    /* Blue */
+    text-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
+    font-size: 3rem !important;
+    font-weight: 800 !important;
+    transition: all 0.3s ease;
+}
+
+.timer-warning {
+    color: #ef4444 !important;
+    /* Red */
+    text-shadow: 0 0 20px rgba(239, 68, 68, 0.8);
+    font-size: 3.2rem !important;
+    font-weight: 800 !important;
+    animation: pulse-red 1s infinite;
+}
+
+@keyframes pulse-red {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+#vote-timer {
+    padding: 16px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-radius: 12px !important;
+    margin: 20px 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+}

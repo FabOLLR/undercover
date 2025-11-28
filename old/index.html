@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="fr" id="html-root">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undercover</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modal.css">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Screen: Home -->
+        <div id="screen-home" class="screen active">
+            <h1 class="game-title">Undercover</h1>
+            <div class="menu-buttons">
+                <button id="btn-new-game" class="btn-primary" data-i18n="home.newGame">Nouvelle Partie</button>
+                <div class="secondary-buttons">
+                    <button id="btn-rules" class="btn-secondary" data-i18n="home.rules">Règles</button>
+                    <button id="btn-settings" class="btn-secondary" data-i18n="home.settings">Paramètres</button>
+                    <button id="btn-word-lists" class="btn-secondary" data-i18n="home.wordLists">Listes de Mots</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen: Mode Selection -->
+        <div id="screen-mode-selection" class="screen hidden">
+            <div class="header-with-back">
+                <button class="btn-icon-back" id="btn-back-mode">⬅️</button>
+                <h2 data-i18n="modeSelection.title">Choisir un mode</h2>
+            </div>
+            <div class="mode-grid">
+                <button class="mode-card" data-mode="classic">
+                    <span class="mode-icon">🎮</span>
+                    <span class="mode-name" data-i18n="modes.classic">Classique</span>
+                </button>
+                <button class="mode-card" data-mode="duo">
+                    <span class="mode-icon">👥</span>
+                    <span class="mode-name" data-i18n="modes.duo">Duo</span>
+                </button>
+                <button class="mode-card" data-mode="children">
+                    <span class="mode-icon">🧒</span>
+                    <span class="mode-name" data-i18n="modes.children">Enfants</span>
+                </button>
+                <button class="mode-card" data-mode="hardcore">
+                    <span class="mode-icon">💀</span>
+                    <span class="mode-name" data-i18n="modes.hardcore">Hardcore</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Screen: Duo Selection -->
+        <div id="screen-duo-selection" class="screen hidden">
+            <div class="header-with-back">
+                <button class="btn-icon-back" id="btn-back-duo">⬅️</button>
+                <h2 data-i18n="duoSelection.title">Mode Duo</h2>
+            </div>
+            <p class="subtitle" data-i18n="duoSelection.subtitle">Choisis ton style de duel</p>
+            <div class="duo-options">
+                <button class="duo-card" data-submode="duo-classic">
+                    <h3 data-i18n="duoSelection.classicTitle">Duo classique</h3>
+                    <p data-i18n="duoSelection.classicDesc">Mots proches</p>
+                </button>
+                <button class="duo-card" data-submode="duo-chaos">
+                    <h3 data-i18n="duoSelection.chaosTitle">Duo chaos</h3>
+                    <p data-i18n="duoSelection.chaosDesc">Mots totalement différents</p>
+                </button>
+            </div>
+        </div>
+
+        <!-- Screen: Setup (Generic) -->
+        <div id="screen-setup" class="screen hidden">
+            <div class="header-with-back">
+                <button class="btn-icon-back" id="btn-back-setup">⬅️</button>
+                <h1 data-i18n="setup.title">
+                    <div class="screen-setup-title">Configuration</div>
+                </h1>
+            </div>
+
+            <div class="setup-controls">
+                <label data-i18n="setup.playerCount">Nombre de joueurs</label>
+                <div class="counter-control">
+                    <button id="btn-decrease-players">-</button>
+                    <span id="player-count-display">6</span>
+                    <button id="btn-increase-players">+</button>
+                </div>
+
+                <div id="setup-undercover-container">
+                    <label data-i18n="setup.undercoverCount">Nombre d'Undercover</label>
+                    <div class="counter-control">
+                        <button id="btn-decrease-undercover">-</button>
+                        <span id="undercover-count-display">1</span>
+                        <button id="btn-increase-undercover">+</button>
+                    </div>
+                </div>
+
+                <div id="setup-mrwhite-container">
+                    <label data-i18n="setup.mrWhite">Mr. White ?</label>
+                    <label class="toggle-control">
+                        <input type="checkbox" id="toggle-mrwhite" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div id="player-inputs-container">
+                <!-- Player name inputs generated here -->
+            </div>
+
+            <button id="btn-start-game" class="btn-primary" data-i18n="setup.startGame">Commencer la partie</button>
+        </div>
+
+        <!-- Screen: Role Reveal -->
+        <div id="screen-reveal" class="screen hidden">
+            <div class="card-container">
+                <h2 id="reveal-player-name">Joueur X</h2>
+                <p class="instruction"><span data-i18n="reveal.passTo">Passe le téléphone à</span> <span
+                        id="reveal-target-name">...</span></p>
+
+                <div id="secret-card" class="card">
+                    <div class="card-front">
+                        <span data-i18n="reveal.viewSecret">Voir mon mot secret</span>
+                    </div>
+                    <div class="card-back">
+                        <span id="secret-word">???</span>
+                        <p class="role-hint" id="role-hint"></p>
+                    </div>
+                </div>
+
+                <button id="btn-confirm-secret" class="btn-primary hidden" data-i18n="reveal.confirmed">C'est vu
+                    !</button>
+            </div>
+        </div>
+
+        <!-- Screen: Game Loop -->
+        <div id="screen-game" class="screen hidden">
+            <div class="game-header">
+                <button class="btn-icon-home" id="btn-home-game">🏠</button>
+                <h2 data-i18n="game.title">Tour de table</h2>
+            </div>
+            <p class="instruction" data-i18n="game.instruction">Chacun donne un indice.</p>
+
+            <div class="game-stats">
+                <div class="stat-item">
+                    <span class="stat-label" data-i18n="game.undercoverRemaining">Undercover restants :</span>
+                    <span id="undercover-remaining" class="stat-value">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label" data-i18n="game.mrWhitePresent">Mr. White :</span>
+                    <span id="mrwhite-remaining" class="stat-value">0</span>
+                </div>
+            </div>
+
+            <ul id="player-list" class="player-list">
+                <!-- List of alive players -->
+            </ul>
+
+            <button id="btn-start-vote" class="btn-danger" data-i18n="game.startVote">Passer au vote</button>
+        </div>
+
+        <!-- Screen: Voting -->
+        <div id="screen-vote" class="screen hidden">
+            <div class="game-header">
+                <button class="btn-icon-home" id="btn-home-vote">🏠</button>
+                <h2 data-i18n="vote.title">Vote</h2>
+            </div>
+            <p class="instruction" data-i18n="vote.instruction">Qui est l'imposteur ?</p>
+
+            <!-- Timer Display -->
+            <div id="vote-timer" class="timer hidden">
+                <span id="timer-display">00:00</span>
+            </div>
+
+            <div id="vote-list" class="vote-grid">
+                <!-- Buttons to vote for players -->
+            </div>
+        </div>
+
+        <!-- Screen: Elimination -->
+        <div id="screen-elimination" class="screen hidden">
+            <button class="btn-icon-home absolute-top-left" id="btn-home-elimination">🏠</button>
+            <div class="elimination-content">
+                <h2 id="eliminated-title">... est éliminé !</h2>
+                <p id="eliminated-role">Il était ...</p>
+
+                <div id="mr-white-guess-container" class="hidden">
+                    <p data-i18n="elimination.mrWhiteGuess">Mr. White, tentez de deviner le mot des Citoyens !</p>
+                    <input type="text" id="mr-white-input" placeholder="Votre supposition..."
+                        data-i18n="elimination.guessPlaceholder">
+                    <button id="btn-mr-white-guess" class="btn-primary"
+                        data-i18n="elimination.validate">Valider</button>
+                </div>
+
+                <button id="btn-next-round" class="btn-primary" data-i18n="elimination.nextRound">Tour suivant</button>
+            </div>
+        </div>
+
+        <!-- Screen: Game Over -->
+        <div id="screen-gameover" class="screen hidden">
+            <button class="btn-icon-home absolute-top-left" id="btn-home-gameover">🏠</button>
+            <h1 id="winner-title" data-i18n="gameover.victory">Victoire !</h1>
+            <p id="winner-reason">...</p>
+
+            <!-- Role Reveal Section -->
+            <div id="roles-reveal" class="roles-reveal hidden">
+                <h3 data-i18n="gameover.rolesTitle">Rôles des joueurs</h3>
+                <div id="roles-list"></div>
+            </div>
+
+            <button id="btn-restart" class="btn-primary" data-i18n="gameover.replay">Rejouer</button>
+        </div>
+
+        <!-- Screen: Word Lists Display (Read Only) -->
+        <div id="screen-word-lists-display" class="screen hidden">
+            <div class="header-with-back">
+                <button class="btn-icon-back" id="btn-back-lists">⬅️</button>
+                <h2 data-i18n="settings.wordLists">Listes de Mots</h2>
+            </div>
+            <div id="all-word-lists-container" class="word-lists-container">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 data-i18n="settings.title">Paramètres</h2>
+                <button id="btn-close-settings" class="btn-close">✕</button>
+            </div>
+
+            <!-- Tab Navigation -->
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="word-lists" data-i18n="settings.wordLists">📚 Listes de
+                    mots</button>
+                <button class="tab-btn" data-tab="settings" data-i18n="settings.parameters">⚙️ Paramètres</button>
+                <button class="tab-btn" data-tab="rules" data-i18n="settings.rules">📜 Règles</button>
+            </div>
+
+            <!-- Word Lists Tab -->
+            <div id="tab-word-lists" class="tab-content active">
+                <p class="modal-description" data-i18n="settings.wordListsDescription">Sélectionnez les catégories
+                    de mots à utiliser</p>
+                <div id="word-lists-container" class="word-lists">
+                    <!-- Word list checkboxes generated here -->
+                </div>
+            </div>
+
+            <!-- Rules Tab -->
+            <div id="tab-rules" class="tab-content">
+                <div class="rules-container">
+                    <h3 data-i18n="settings.rulesTab.goalTitle">But du jeu</h3>
+                    <p data-i18n="settings.rulesTab.goal">Démasquer les imposteurs...</p>
+
+                    <h3 data-i18n="settings.rulesTab.rolesTitle">Les Rôles</h3>
+                    <ul>
+                        <li data-i18n="settings.rulesTab.citizen">Citoyen...</li>
+                        <li data-i18n="settings.rulesTab.undercover">Undercover...</li>
+                        <li data-i18n="settings.rulesTab.mrWhite">Mr. White...</li>
+                    </ul>
+
+                    <h3 data-i18n="settings.rulesTab.turnTitle">Déroulement</h3>
+                    <p data-i18n="settings.rulesTab.turn">Chacun son tour...</p>
+
+                    <h3 data-i18n="settings.rulesTab.voteTitle">Vote & Élimination</h3>
+                    <p data-i18n="settings.rulesTab.vote">Après le tour...</p>
+
+                    <h3 data-i18n="settings.rulesTab.winTitle">Conditions de victoire</h3>
+                    <ul>
+                        <li data-i18n="settings.rulesTab.winCitizen">Citoyens...</li>
+                        <li data-i18n="settings.rulesTab.winImpostor">Imposteurs...</li>
+                        <li data-i18n="settings.rulesTab.winMrWhite">Mr. White...</li>
+                    </ul>
+
+                    <hr style="margin: 20px 0; border-color: rgba(255,255,255,0.1);">
+
+                    <h3 data-i18n="settings.rulesTab.duoTitle">Règles Duo</h3>
+                    <p data-i18n="settings.rulesTab.duoClassic">Duo Classique : 1 Citoyen vs 1 Undercover. Les mots sont
+                        très proches.</p>
+                    <p data-i18n="settings.rulesTab.duoChaos">Duo Chaos : 2 mots totalement différents. Bluffez pour
+                        faire croire que vous avez le même mot !</p>
+
+                    <hr style="margin: 20px 0; border-color: rgba(255,255,255,0.1);">
+
+                    <h3 data-i18n="settings.rulesTab.hardcoreTitle">Règles Hardcore</h3>
+                    <p data-i18n="settings.rulesTab.hardcoreDesc1">Les mots sont des triplets (ex: Lion, Tigre,
+                        Léopard).</p>
+                    <p data-i18n="settings.rulesTab.hardcoreDesc2">S'il y a 2 Undercovers, ils peuvent avoir des mots
+                        différents !</p>
+                </div>
+            </div>
+
+            <!-- Settings Tab -->
+            <div id="tab-settings" class="tab-content">
+                <!-- Language Settings -->
+                <div class="settings-section section-global">
+                    <h3 data-i18n="settings.globalSettings">🌍 Paramètres globaux</h3>
+                    <div class="setting-item">
+                        <label data-i18n="settings.uiLanguage">Langue de l'interface</label>
+                        <select id="setting-language">
+                            <option value="fr">Français</option>
+                            <option value="en">English</option>
+                            <option value="es">Español</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label data-i18n="settings.wordsLanguage">Langue des mots</label>
+                        <select id="setting-words-language">
+                            <option value="fr">Français</option>
+                            <option value="en">English</option>
+                            <option value="es">Español</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Mr. White Settings -->
+                <div class="settings-section section-mrwhite">
+                    <h3 data-i18n="settings.mrWhiteSection">👤 Mr. White</h3>
+                    <div class="setting-item">
+                        <label data-i18n="settings.mrWhitePlayer1">Autoriser Mr. White en Joueur 1</label>
+                        <label class="toggle-control">
+                            <input type="checkbox" id="setting-mrwhite-player1">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Vote Timer Settings -->
+                <div class="settings-section section-timer">
+                    <h3 data-i18n="settings.voteTimerSection">⏱️ Temps pour vote</h3>
+                    <div class="setting-item">
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="vote-timer" value="30">
+                                <span data-i18n="settings.timer30">30 secondes</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="vote-timer" value="45">
+                                <span data-i18n="settings.timer45">45 secondes</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="vote-timer" value="60">
+                                <span data-i18n="settings.timer60">60 secondes</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="vote-timer" value="unlimited" checked>
+                                <span data-i18n="settings.timerUnlimited">Illimité</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Role Reveal Settings -->
+                <div class="settings-section section-reveal">
+                    <h3 data-i18n="settings.roleRevealSection">👁️ Révéler les rôles</h3>
+                    <div class="setting-item">
+                        <label data-i18n="settings.showRoles">Afficher tous les rôles à la fin</label>
+                        <label class="toggle-control">
+                            <input type="checkbox" id="setting-reveal-roles" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Game Mode Settings -->
+                <div class="settings-section section-gamemode">
+                    <h3 data-i18n="settings.gameModeSection">🎮 Mode de jeu</h3>
+                    <div class="setting-item">
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="game-mode" value="quick" checked>
+                                <span data-i18n="settings.quickMode">Rapide (undercover gagnent en
+                                    supériorité)</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="game-mode" value="long">
+                                <span data-i18n="settings.longMode">Long (jusqu'à 2 joueurs restants)</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- First Player Settings -->
+                <div class="settings-section section-firstplayer">
+                    <h3 data-i18n="settings.firstPlayerSection">🎯 Choix du premier joueur</h3>
+                    <div class="setting-item">
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="first-player" value="player1" checked>
+                                <span data-i18n="settings.alwaysPlayer1">Toujours Joueur 1</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="first-player" value="random">
+                                <span data-i18n="settings.random">Aléatoire</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="first-player" value="previous">
+                                <span data-i18n="settings.previousWinner">Gagnant de la partie
+                                    précédente</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sound Settings -->
+                <div class="settings-section section-sound">
+                    <h3 data-i18n="settings.soundSection">🔊 Son & vibrations</h3>
+                    <div class="setting-item">
+                        <label data-i18n="settings.sound">Sons</label>
+                        <label class="toggle-control">
+                            <input type="checkbox" id="setting-sound" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <label data-i18n="settings.vibration">Vibrations</label>
+                        <label class="toggle-control">
+                            <input type="checkbox" id="setting-vibration" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-footer">
+                <button id="btn-credits" class="btn-text-small" data-i18n="settings.credits">Crédits</button>
+                <button id="btn-save-settings" class="btn-primary" data-i18n="settings.save">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Word Lists -->
+    <script src="word-lists/classique.js"></script>
+    <script src="word-lists/films.js"></script>
+    <script src="word-lists/cuisine.js"></script>
+    <script src="word-lists/sports.js"></script>
+    <script src="word-lists/culture.js"></script>
+    <script src="word-lists/jeux.js"></script>
+
+    <script src="word-lists/enfants-animaux.js"></script>
+    <script src="word-lists/enfants-objets.js"></script>
+    <script src="word-lists/enfants-aliments.js"></script>
+
+    <script src="word-lists/hardcore-animaux.js"></script>
+    <script src="word-lists/hardcore-objets.js"></script>
+
+    <script src="word-lists/index.js"></script>
+
+    <!-- Translation System -->
+    <script src="languages/fr.js"></script>
+    <script src="languages/en.js"></script>
+    <script src="languages/es.js"></script>
+    <script src="languages/index.js"></script>
+
+    <!-- Sound Manager -->
+    <script src="sounds/sound-manager.js"></script>
+
+    <!-- App Modules -->
+    <script src="js/state.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/tabs.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
